@@ -15,13 +15,13 @@ version.kustomize-controller        = v1.7.1
 version.notification-controller     = v1.7.3
 version.source-controller           = v1.7.3
 
-component_id.cli                         =
-component_id.helm-controller             =
-component_id.image-automation-controller =
-component_id.image-reflector-controller  =
-component_id.kustomize-controller        =
-component_id.notification-controller     =
-component_id.source-controller           =
+component_id.cli                         = 695bac12274e2ac1e9d40762
+component_id.helm-controller             = 696a1d7e77d31627342ce5fa
+component_id.image-automation-controller = 696a1da27d59fd494842776d
+component_id.image-reflector-controller  = 696a1dc85226c0f3f2a9891d
+component_id.kustomize-controller        = 696a1dee14c1ddd443aa760c
+component_id.notification-controller     = 696a1e0cda7b986127207a9b
+component_id.source-controller           = 696a1e480f00d5000090aa25
 
 .PHONY: all-build
 all-build: build-cli build-helm-controller build-image-automation-controller build-image-reflector-controller build-kustomize-controller build-notification-controller build-source-controller

@@ -16,4 +16,6 @@ LABEL name="FluxCD notification-controller" \
       summary="This is the FluxCD notification-controller image" \
       description="This is the FluxCD notification-controller image"
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/notification-controller"]

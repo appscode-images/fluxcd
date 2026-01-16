@@ -16,4 +16,6 @@ LABEL name="FluxCD image-reflector-controller" \
       summary="This is the FluxCD image-reflector-controller image" \
       description="This is the FluxCD image-reflector-controller image"
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/image-reflector-controller"]

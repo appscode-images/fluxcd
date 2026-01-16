@@ -16,4 +16,6 @@ LABEL name="FluxCD image-automation-controller" \
       summary="This is the FluxCD image-automation-controller image" \
       description="This is the FluxCD image-automation-controller image"
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/image-automation-controller"]
