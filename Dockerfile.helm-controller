@@ -16,4 +16,6 @@ LABEL name="FluxCD helm-controller" \
       summary="This is the FluxCD helm-controller image" \
       description="This is the FluxCD helm-controller image"
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/helm-controller"]

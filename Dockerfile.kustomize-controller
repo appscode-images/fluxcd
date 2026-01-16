@@ -16,4 +16,6 @@ LABEL name="FluxCD kustomize-controller" \
       summary="This is the FluxCD kustomize-controller image" \
       description="This is the FluxCD kustomize-controller image"
 
+USER 65534
+
 ENTRYPOINT ["/usr/local/bin/kustomize-controller"]
