@@ -1,0 +1,19 @@
+ARG BIN
+ARG VERSION
+
+FROM ghcr.io/fluxcd/source-controller:${VERSION} as source
+FROM registry.access.redhat.com/ubi10/ubi-minimal
+
+COPY --from=source /usr/local/bin/source-controller /usr/local/bin/source-controller
+# Required Licenses
+COPY LICENSE /licenses/
+
+### Required OpenShift Labels
+LABEL name="FluxCD source-controller" \
+      maintainer="AppsCode" \
+      vendor="AppsCode" \
+      release="1" \
+      summary="This is the FluxCD source-controller image" \
+      description="This is the FluxCD source-controller image"
+
+ENTRYPOINT ["/usr/local/bin/source-controller"]

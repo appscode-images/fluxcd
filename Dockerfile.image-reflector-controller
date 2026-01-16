@@ -1,0 +1,19 @@
+ARG BIN
+ARG VERSION
+
+FROM ghcr.io/fluxcd/image-reflector-controller:${VERSION} as source
+FROM registry.access.redhat.com/ubi10/ubi-minimal
+
+COPY --from=source /usr/local/bin/image-reflector-controller /usr/local/bin/image-reflector-controller
+# Required Licenses
+COPY LICENSE /licenses/
+
+### Required OpenShift Labels
+LABEL name="FluxCD image-reflector-controller" \
+      maintainer="AppsCode" \
+      vendor="AppsCode" \
+      release="1" \
+      summary="This is the FluxCD image-reflector-controller image" \
+      description="This is the FluxCD image-reflector-controller image"
+
+ENTRYPOINT ["/usr/local/bin/image-reflector-controller"]

@@ -1,0 +1,19 @@
+ARG BIN
+ARG VERSION
+
+FROM ghcr.io/fluxcd/flux-cli:${VERSION} as source
+FROM registry.access.redhat.com/ubi10/ubi-minimal
+
+COPY --from=source /usr/local/bin/flux /usr/local/bin/flux
+# Required Licenses
+COPY LICENSE /licenses/
+
+### Required OpenShift Labels
+LABEL name="FluxCD cli" \
+      maintainer="AppsCode" \
+      vendor="AppsCode" \
+      release="1" \
+      summary="This is the FluxCD cli image" \
+      description="This is the FluxCD cli image"
+
+ENTRYPOINT ["/usr/local/bin/flux"]

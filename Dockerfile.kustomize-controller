@@ -1,0 +1,19 @@
+ARG BIN
+ARG VERSION
+
+FROM ghcr.io/fluxcd/kustomize-controller:${VERSION} as source
+FROM registry.access.redhat.com/ubi10/ubi-minimal
+
+COPY --from=source /usr/local/bin/kustomize-controller /usr/local/bin/kustomize-controller
+# Required Licenses
+COPY LICENSE /licenses/
+
+### Required OpenShift Labels
+LABEL name="FluxCD kustomize-controller" \
+      maintainer="AppsCode" \
+      vendor="AppsCode" \
+      release="1" \
+      summary="This is the FluxCD kustomize-controller image" \
+      description="This is the FluxCD kustomize-controller image"
+
+ENTRYPOINT ["/usr/local/bin/kustomize-controller"]
